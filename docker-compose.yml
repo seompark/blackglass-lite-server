@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: blackglass_app
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - MONGO_URI=mongodb://mongo/blackglass
+    depends_on:
+      - mongodb
+    networks:
+      - prodnet
+
+  mongodb:
+    image: "mongo:latest"
+    container_name: blackglass_db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    networks:
+      prodnet:
+        aliases:
+          - "mongo"
+
+networks:
+  prodnet:
+    driver: bridge
