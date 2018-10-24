@@ -1,9 +1,9 @@
-import { Document, Schema } from "mongoose";
-import { IFactory } from "factories/interfaces/factories.interface";
+import { Document, Schema } from 'mongoose';
+import { Factory } from 'factories/interfaces/factory.interface';
 
-export interface IJob extends Document {
+export interface Job extends Document {
   readonly position: string;
   readonly size: string;
-  readonly factory: Schema.Types.ObjectId | IFactory;
+  readonly factory: Schema.Types.ObjectId | Factory;
   readonly description: string;
 }

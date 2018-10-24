@@ -9,9 +9,9 @@ RUN yarn global add pm2
 
 COPY package.json $APP/package.json
 COPY yarn.lock $APP/yarn.lock
-RUN yarn install
+RUN yarn
 
-RUN yarn run build
+RUN yarn build
 
 EXPOSE 3000
 

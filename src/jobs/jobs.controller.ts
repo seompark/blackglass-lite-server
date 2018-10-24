@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
-import { CreateJobDto } from "./dto/create-job.dto";
-import { JobsService } from "./jobs.service";
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreateJobDto } from './dto/create-job.dto';
+import { JobsService } from './jobs.service';
+import { ApiUseTags } from '@nestjs/swagger';
 
-@Controller("jobs")
+@ApiUseTags('jobs')
+@Controller('jobs')
 export class JobsController {
   constructor(private readonly jobsService: JobsService) {}
 

@@ -1,22 +1,20 @@
-import * as mongoose from "mongoose";
+import * as mongoose from 'mongoose';
 
 export const FactorySchema = new mongoose.Schema({
   id: {
-    type: Number
-  },
-  name: {
     type: String,
-    unique: true
+    unique: true,
   },
+  name: String,
   bio: String,
   description: String,
   logoPath: String,
   likeCount: {
     type: Number,
-    default: 0
+    default: 0,
   },
   readCount: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });

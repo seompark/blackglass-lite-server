@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body } from "@nestjs/common";
-import { FactoriesService } from "./factories.service";
-import { CreateFactoryDto } from "./dto/create-factory.dto";
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { FactoriesService } from './factories.service';
+import { CreateFactoryDto } from './dto/create-factory.dto';
+import { ApiUseTags } from '@nestjs/swagger';
 
-@Controller("factories")
+@ApiUseTags('factories')
+@Controller('factories')
 export class FactoriesController {
   constructor(private readonly factoriesService: FactoriesService) {}
 
@@ -14,5 +16,10 @@ export class FactoriesController {
   @Get()
   public findAll() {
     return this.factoriesService.findAll();
+  }
+
+  @Get(':id')
+  public findById(@Param('id') id: string) {
+    return this.factoriesService.findById(id);
   }
 }

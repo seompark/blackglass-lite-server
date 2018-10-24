@@ -1,11 +1,9 @@
-import { Module } from "@nestjs/common";
-import { JobsModule } from "jobs/jobs.module";
-import { MongooseModule } from "@nestjs/mongoose";
+import { Module } from '@nestjs/common';
+import { JobsModule } from './jobs/jobs.module';
+import { FactoriesModule } from 'factories/factories.module';
+import { UsersModule } from 'users/users.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(""),
-    JobsModule
-  ],
+  imports: [JobsModule, FactoriesModule, UsersModule],
 })
-export class AppModule { }
+export class AppModule {}
